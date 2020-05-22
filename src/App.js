@@ -41,7 +41,10 @@ class App extends Component {
 
 
     getNews=()=>{
-      fetch('http://localhost:5000/news')
+      this.setState({
+        route:'loading'
+      })
+      fetch('https://20980.wayscript.io/news')
       .then((res)=>res.json())
       .then((news)=>{
         this.setState({
@@ -71,32 +74,37 @@ class App extends Component {
                 <li>Deaths: {this.state.death}</li>
               </ul>
             </div>
-          :<div>
-              <div><h2>Global News</h2>
-                <ul>{this.state.newsTitle.global_news.map(news=>{
-                  return (
-                    <li key={news}>{news}</li>
-                  )
-                })}
-                </ul>
-              </div>
-              <div><h2>Local News</h2>
-                <ul>{this.state.newsTitle.local_news.map(news=>{
-                  return (
-                    <li key={news}>{news}</li>
-                  )
-                })}
-                </ul>
-              </div>
-              <div><h2>Political News</h2>
-                <ul>{this.state.newsTitle.political_news.map(news=>{
-                  return (
-                    <li key={news}>{news}</li>
-                  )
-                })}
-                </ul>
-              </div>
-           </div>
+          :(
+            this.state.route==='loading'
+            ?<h1>Loading...</h1>
+          
+            :<div>
+                <div><h2>Global News</h2>
+                  <ul>{this.state.newsTitle.global_news.map(news=>{
+                    return (
+                      <li key={news}>{news}</li>
+                    )
+                  })}
+                  </ul>
+                </div>
+                <div><h2>Local News</h2>
+                  <ul>{this.state.newsTitle.local_news.map(news=>{
+                    return (
+                      <li key={news}>{news}</li>
+                    )
+                  })}
+                  </ul>
+                </div>
+                <div><h2>Political News</h2>
+                  <ul>{this.state.newsTitle.political_news.map(news=>{
+                    return (
+                      <li key={news}>{news}</li>
+                    )
+                  })}
+                  </ul>
+                </div>
+            </div>
+          )
         }
       </div>
     );
