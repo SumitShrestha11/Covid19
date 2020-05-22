@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
+import Navigation from './Components/Navigation/Navigation.js';
+import Data from './Components/Data/Data';
+import Loading from './Components/Loading/Loading';
+import News from './Components/News/News';
 
 class App extends Component {
   constructor(){
@@ -56,54 +60,22 @@ class App extends Component {
     }
     
   render(){
+    const { recovered, active, death, newsTitle, route} = this.state;
     return (
       <div>
-        <button 
-          id='getData'
-          onClick={this.buttonClick}
-        >Get Data</button>
-        <button id='getNews'
-          onClick={this.getNews}
-        >Get News</button>
-        {this.state.route==='data'
-          ?<div>
-              <ul>
-                <li>Total Cases: {this.state.active+this.state.recovered+this.state.death}</li>
-                <li>Active Cases: {this.state.active}</li>
-                <li>Recovered Cases: {this.state.recovered}</li>
-                <li>Deaths: {this.state.death}</li>
-              </ul>
-            </div>
+        <Navigation buttonClick={this.buttonClick}
+         getNews={this.getNews} />
+        
+        {route==='data'
+          ?<Data active={active}
+           recovered={recovered}
+            death={death} />
           :(
-            this.state.route==='loading'
-            ?<h1>Loading...</h1>
+           route==='loading'
+            ?<Loading />
           
-            :<div>
-                <div><h2>Global News</h2>
-                  <ul>{this.state.newsTitle.global_news.map(news=>{
-                    return (
-                      <li key={news}>{news}</li>
-                    )
-                  })}
-                  </ul>
-                </div>
-                <div><h2>Local News</h2>
-                  <ul>{this.state.newsTitle.local_news.map(news=>{
-                    return (
-                      <li key={news}>{news}</li>
-                    )
-                  })}
-                  </ul>
-                </div>
-                <div><h2>Political News</h2>
-                  <ul>{this.state.newsTitle.political_news.map(news=>{
-                    return (
-                      <li key={news}>{news}</li>
-                    )
-                  })}
-                  </ul>
-                </div>
-            </div>
+            :<News newsTitle={newsTitle} />
+            
           )
         }
       </div>
