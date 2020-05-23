@@ -1,17 +1,22 @@
 import React from 'react';
+import './Navigation.css';
+import coronavirus from './coronavirus.svg'
 
 const Navigation = (props) =>{
     return(
-        <div>
-            <button 
+        <nav className='navbar'>
+            <div className='logo'> 
+                <img src={coronavirus} alt="covid19-logo" />
+            </div>
+            <p
             id='getData'
             onClick={props.buttonClick}
-            >Get Data</button>
+            >Data</p>
             
-            <button id='getNews'
+            <p id='getNews'
             onClick={props.getNews}
-            >Get News</button>
-        </div>
+            >News</p>
+        </nav>
     )
 }
 

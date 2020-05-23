@@ -1,0 +1,30 @@
+.navbar{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #000000;
+    position: fixed;
+    top:0;
+}
+
+p{
+    margin:10px;
+    padding:10px;
+    font-size: 30px;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 1rem;
+}
+
+.logo{
+    margin-left: 1rem;
+    justify-self: flex-start;
+    flex-grow: 5;
+}
+
+img{
+    height: 50px;
+    width:50px;
+}

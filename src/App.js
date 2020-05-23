@@ -65,19 +65,21 @@ class App extends Component {
       <div>
         <Navigation buttonClick={this.buttonClick}
          getNews={this.getNews} />
-        
-        {route==='data'
-          ?<Data active={active}
-           recovered={recovered}
-            death={death} />
-          :(
-           route==='loading'
-            ?<Loading />
-          
-            :<News newsTitle={newsTitle} />
+
+        <main className='content'>        
+          {route==='data'
+            ?<Data active={active}
+            recovered={recovered}
+              death={death} />
+            :(
+            route==='loading'
+              ?<Loading />
             
-          )
-        }
+              :<News newsTitle={newsTitle} />
+              
+            )
+          }
+        </main>
       </div>
     );
   }
