@@ -62,7 +62,7 @@ class App extends Component {
   render(){
     const { recovered, active, death, newsTitle, route} = this.state;
     return (
-      <div>
+      <div className='page'>
         <Navigation buttonClick={this.buttonClick}
          getNews={this.getNews} />
 
