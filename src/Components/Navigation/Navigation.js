@@ -7,6 +7,7 @@ const Navigation = (props) =>{
         <nav className='navbar'>
             <div className='logo'> 
                 <img src={coronavirus} alt="covid19-logo" />
+                <h1 className='title'>Covid19 Info Nepal</h1>
             </div>
             <p
             id='getData'

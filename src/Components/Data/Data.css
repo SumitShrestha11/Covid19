@@ -18,12 +18,47 @@
     background-color: black;
     opacity: 0.75;
     padding:12px;
-    font-size:100%;
+    font-size:150%;
     cursor: default;
     
 }
 
 .box1{
     grid-column: 1/4;
-    font-size:200%;
+}
+
+.box1>h1{
+    background-color: #2a2a72;
+    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;    
+}
+
+.box2>h3{
+    background-color: #fbb034;
+    background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.box3>h3{
+    background-color: #08e1ae;
+    background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.box4>h3{
+    background-color: #f71735;
+background-image: linear-gradient(147deg, #f71735 0%, #db3445 74%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+@media only screen and (max-device-width: 480px) {
+    .data-box{
+        font-size:100%;
+    }
+    .box1{
+        font-size: 125%;
+    }
 }

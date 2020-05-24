@@ -1,4 +1,5 @@
 .navbar{
+    z-index:1;
     height: 70px;
     width: 100%;
     display: flex;
@@ -9,22 +10,43 @@
     top:0;
 }
 
-p{
+.navbar>p{
+    background-color: #f5d020;
+    background-image: linear-gradient(to bottom, #f5d020 0%, #f53803 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.8;
     margin:10px;
     padding:10px;
     font-size: 30px;
     cursor: pointer;
-    border: 1px solid white;
+    border: 1.2px solid orange;
     border-radius: 1rem;
 }
-
 .logo{
+    display: flex;
     margin-left: 1rem;
-    justify-self: flex-start;
+    justify-items: flex-start;
     flex-grow: 5;
+    align-items: center;
+}
+
+.title{
+    background: linear-gradient(to bottom, #f5d020 0%, #f53803 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.85;
+    margin-left: 15px;
+    font-size: 200%;
 }
 
 img{
     height: 50px;
     width:50px;
+}
+
+@media (max-width: 650px) {
+    .title{
+        display: none;
+    }
 }
