@@ -21,8 +21,8 @@ class App extends Component {
     .then((res)=>res.json())
     .then((data)=>{
         this.setState({
-          recovered:data.current_state[1].count,
-          active:data.current_state[2].count,
+          recovered:data.current_state[2].count,
+          active:data.current_state[1].count,
           death:data.current_state[0].count
         })
 
@@ -34,8 +34,8 @@ class App extends Component {
     .then((res)=>res.json())
     .then((data)=>{
         this.setState({
-          recovered:data.current_state[1].count,
-          active:data.current_state[2].count,
+          recovered:data.current_state[2].count,
+          active:data.current_state[1].count,
           death:data.current_state[0].count,
           route:'data'
         })
