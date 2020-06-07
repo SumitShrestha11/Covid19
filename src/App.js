@@ -12,10 +12,13 @@ class App extends Component {
       recovered:'',
       active:'',
       death:'',
+      provinceCases:[],
+      statesGeojson:[],
       newsTitle:[],
       route:'data'  
     }
   }
+
   componentDidMount(){
     fetch('https://data.nepalcorona.info/api/v1/covid/summary')
     .then((res)=>res.json())
@@ -23,12 +26,24 @@ class App extends Component {
         this.setState({
           recovered:data.current_state[2].count,
           active:data.current_state[1].count,
-          death:data.current_state[0].count
+          death:data.current_state[0].count,
+          provinceCases:data.province.cases
         })
-
+    
+    
+    const url ="https://raw.githubusercontent.com/mesaugat/geoJSON-Nepal/master/nepal-states.geojson";
+    fetch(url)
+    .then((res)=>res.json())
+    .then(data => {
+        this.setState({
+          statesGeojson:data.features
+        })
     })
+    })
+    
 
   }
+  
   buttonClick=()=>{
     fetch('https://data.nepalcorona.info/api/v1/covid/summary')
     .then((res)=>res.json())
@@ -60,7 +75,7 @@ class App extends Component {
     }
     
   render(){
-    const { recovered, active, death, newsTitle, route} = this.state;
+    const { recovered, active, death, provinceCases,statesGeojson, newsTitle, route} = this.state;
     return (
       <div className='page'>
         <Navigation buttonClick={this.buttonClick}
@@ -70,7 +85,10 @@ class App extends Component {
           {route==='data'
             ?<Data active={active}
             recovered={recovered}
-              death={death} />
+              death={death} 
+              provinceCases={provinceCases}
+              statesGeojson={statesGeojson}
+              />
             :(
             route==='loading'
               ?<Loading />

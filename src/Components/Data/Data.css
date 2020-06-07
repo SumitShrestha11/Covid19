@@ -54,6 +54,34 @@ background-image: linear-gradient(147deg, #f71735 0%, #db3445 74%);
 	-webkit-text-fill-color: transparent;
 }
 
+.mapbox{
+    grid-column: 1/4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.svg-container {
+    
+    grid-column: 1/4;
+    display: inline-block;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content {   
+    background-color:#0000005e; 
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
 @media only screen and (max-device-width: 480px) {
     .data-box{
         font-size:100%;
