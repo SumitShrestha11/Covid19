@@ -20,13 +20,13 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch('https://data.nepalcorona.info/api/v1/covid/summary')
+    fetch('https://data.askbhunte.com/api/v1/covid/summary')
     .then((res)=>res.json())
     .then((data)=>{
         this.setState({
           recovered:data.current_state[2].count,
-          active:data.current_state[1].count,
-          death:data.current_state[0].count,
+          active:data.current_state[0].count,
+          death:data.current_state[1].count,
           provinceCases:data.province.cases
         })
     

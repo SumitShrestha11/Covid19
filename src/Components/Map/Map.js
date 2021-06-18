@@ -20,7 +20,7 @@ const Map=( {sortedData, statesGeojson} )=>{
         })
         
         const radiusScale = scaleSqrt();
-        const radiusVal = d => cases[d.properties.ADM1_EN-1];
+        const radiusVal = d => cases[d.properties.ADM1_EN-1]/7;
         
         const projection = geoMercator()
             .center([84.5240,28.3949])
